@@ -1,0 +1,90 @@
+{
+  "items": [
+    {
+      "text": "今週の特別レース分析",
+      "icon": {
+        "path": "horseshoe"
+      },
+      "children": [
+        {
+          "text": "中山",
+          "icon": {
+            "path": "alphaMBoxOutline"
+          },
+          "children": [
+            {
+              "text": "呉竹賞",
+              "icon": {
+                "path": "numeric1CircleOutline"
+              }
+            },
+            {
+              "text": "東雲賞",
+              "icon": {
+                "path": "numeric2CircleOutline"
+              }
+            },
+            {
+              "text": "アレキサンド",
+              "icon": {
+                "path": "numeric3CircleOutline"
+              }
+            }
+          ]
+        },
+        {
+          "text": "京都",
+          "icon": {
+            "path": "alphaMBoxOutline"
+          },
+          "children": [
+            {
+              "text": "睦月賞",
+              "icon": {
+                "path": "numeric1CircleOutline"
+              }
+            },
+            {
+              "text": "蹴上特別",
+              "icon": {
+                "path": "numeric2CircleOutline"
+              }
+            },
+            {
+              "text": "石清水S",
+              "icon": {
+                "path": "numeric3CircleOutline"
+              }
+            }
+          ]
+        },
+        {
+          "text": "小倉",
+          "icon": {
+            "path": "alphaLBoxOutline"
+          },
+          "children": [
+            {
+              "text": "萌黄賞",
+              "icon": {
+                "path": "numeric1CircleOutline"
+              }
+            },
+            {
+              "text": "響灘特別",
+              "icon": {
+                "path": "numeric2CircleOutline"
+              }
+            },
+            {
+              "text": "脊振山特別",
+              "icon": {
+                "path": "numeric3CircleOutline"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

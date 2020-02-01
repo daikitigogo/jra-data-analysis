@@ -1,0 +1,13 @@
+version: '3'
+services:
+    react:
+        build: 
+            context: ~/Workspace/dockerfiles/node
+            dockerfile: ./Dockerfile
+            args: 
+                - WORK=/app
+        volumes:
+            - .:/app
+        ports: 
+            - "3000:3000"
+        entrypoint: npm start
