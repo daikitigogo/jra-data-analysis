@@ -1,15 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import UDate from '../util/UDate';
 
 const DomainState = createSlice({
   name: 'Domain',
   initialState: {
-    title: 'All-for-win',
+    sysdate: new UDate().truncate(),
     sidebarMenu: {
       items: []
     },
   },
   reducers: {
+    updateSysdate: state => {
+      return Object.assign({}, state, { sysdate: new UDate().truncate() });
+    },
     setSidebarMenu: (state, action) => {
       return Object.assign({}, state, { sidebarMenu: action.payload });
     },
@@ -17,4 +20,4 @@ const DomainState = createSlice({
 });
 
 export default DomainState.reducer;
-export const { setSidebarMenu } = DomainState.actions;
+export const { setSidebarMenu, updateSysdate } = DomainState.actions;

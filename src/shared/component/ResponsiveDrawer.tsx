@@ -1,45 +1,46 @@
 import React from 'react';
-import { Hidden, Drawer, makeStyles, Theme } from '@material-ui/core';
+import { Hidden, Drawer } from '@material-ui/core';
 
 interface ResponsiveDrawerProps<T> {
   open: boolean;
   onClose: () => void;
   children: any;
-  useStyles: (theme: Theme) => {
-    drawer: any;
-    paper: any;
+  classes: {
+    drawer: string;
+    drawerPaper: string;
   };
 };
 
 const ResponsiveDrawer = <T extends {}>(props: ResponsiveDrawerProps<T>) => {
 
-  const classes = makeStyles(props.useStyles)();
+  const classes = props.classes;
 
   return (
-    <nav className={classes.paper}>
+    <nav className={classes.drawer}>
       <Hidden smUp implementation="css">
         <Drawer
           variant="temporary"
           open={props.open}
           onClose={props.onClose}
           classes={{
-            paper: classes.drawer,
+            paper: classes.drawerPaper,
+          }}
+          ModalProps={{
+            keepMounted: true
           }}
         >
           {props.children}
-          Hello Temporary!
         </Drawer>
       </Hidden>
       <Hidden xsDown implementation="css">
         <Drawer
           classes={{
-            paper: classes.paper,
+            paper: classes.drawerPaper,
           }}
           variant="permanent"
           open
         >
           {props.children}
-          Hello Permanent!
         </Drawer>
       </Hidden>
     </nav>

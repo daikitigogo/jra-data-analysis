@@ -22,7 +22,7 @@ export const LoopedListItem: React.FC<LoopedListItemProps> = (props) => {
     <Box pl={pl}>
       <ListItem button onClick={handleClick} divider>
         <ListItemIcon>
-          <MdiIcon />
+          <MdiIcon {...props.icon} />
         </ListItemIcon>
         <ListItemText primary={props.text} />
         {props.children && (open ? <ExpandLess /> : <ExpandMore />)}

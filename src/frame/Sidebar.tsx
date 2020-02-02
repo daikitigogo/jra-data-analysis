@@ -1,44 +1,24 @@
 import React, { useEffect } from 'react';
 import { LoopedListItemProps, LoopedListItem } from '../shared/component/LoopedListItem';
-import { Drawer, Divider, List, Box } from '@material-ui/core';
-import { makeStyles, Theme } from "@material-ui/core/styles";
+import { Divider, List } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
 import { setSidebarMenu } from '../store/DomainState';
 import { setSidebarOpen } from '../store/UIState';
 import ResponsiveDrawer from '../shared/component/ResponsiveDrawer';
-
-const useStyles = makeStyles(theme => ({
-  toolbar: {
-      ...theme.mixins.toolbar
-  },
-  drawerWidth: {
-    width: 360
-  }
-}));
-
-const childStyles = (theme: Theme) => ({
-  drawer: {
-    [theme.breakpoints.up('sm')]: {
-      width: 360,
-      flexShrink: 0,
-    }
-  },
-  paper: {
-    width: 360,
-  }
-});
+import useStyles from "../style/SidebarStyle";
 
 export interface SidebarProps { };
 
 const Sidebar: React.FC<SidebarProps> = (props) => {
 
-  const classes = useStyles();
+  const { toolbar, ...drawerStyle } = useStyles();
   const dispatch = useDispatch();
   const sidebarMenu = useSelector((state: RootState) => state.domain.sidebarMenu);
   const sidebarOpen = useSelector((state: RootState) => state.ui.sidebarOpen);
+  const sysdate = useSelector((state: RootState) => state.domain.sysdate);
   useEffect(() => {
-    sidebarMenu.items && fetch('/json/menu.json')
+    fetch('/json/menu.json')
       .then(rsp => rsp.json())
       .then(
         success => {
@@ -46,42 +26,23 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
         },
         error => console.log(error)
     );
-  });
+  }, [dispatch, sysdate]);
   
   const handleClose = () => {
     dispatch(setSidebarOpen());
   };
   return (
-    <ResponsiveDrawer open={sidebarOpen} onClose={handleClose} useStyles={childStyles}>
-      <div className={classes.toolbar} />
+    <ResponsiveDrawer open={sidebarOpen} onClose={handleClose} classes={drawerStyle}>
+      <div className={toolbar} />
       <Divider />
       <List
         component="nav"
-        className={classes.drawerWidth}
         disablePadding
       >
         {sidebarMenu.items.map((item: LoopedListItemProps) => <LoopedListItem key={item.text} pl={0} {...item} />)}
       </List>
     </ResponsiveDrawer>
   );
-/*
-  return (
-    <Drawer
-      open={sidebarOpen}
-      onClose={handleClose}
-    >
-      <div className={classes.toolbar} />
-      <Divider />
-      <List
-        component="nav"
-        className={classes.drawerWidth}
-        disablePadding
-      >
-        {sidebarMenu.items.map((item: LoopedListItemProps) => <LoopedListItem key={item.text} pl={0} {...item} />)}
-      </List>
-    </Drawer>
-  );
-*/
 };
 
 export default Sidebar;

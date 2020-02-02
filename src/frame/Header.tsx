@@ -1,28 +1,28 @@
 import React from 'react';
 import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setSidebarOpen } from '../store/UIState';
-import { RootState } from '../store';
+import useStyles from '../style/HeaderStyle';
+import { appTitle } from "../env";
 
-export interface HeaderProps { };
+const Header: React.FC = () => {
 
-const Header: React.FC<HeaderProps> = (props) => {
+  const classes = useStyles();
 
   const dispatch = useDispatch();
-  const title = useSelector((state: RootState) => state.domain.title);
   const handleClick = () => {
     dispatch(setSidebarOpen());
   };
 
   return (
-    <AppBar>
+    <AppBar position="fixed" className={classes.appbar}>
       <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleClick}>
+        <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleClick} className={classes.menuButton}>
           <MenuIcon />
         </IconButton>
-        <Typography variant="h5">
-          {title}
+        <Typography variant="h6">
+          {appTitle}
         </Typography>
       </Toolbar>
     </AppBar>

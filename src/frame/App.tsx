@@ -1,29 +1,34 @@
 import React from 'react';
-import { Container, CssBaseline, makeStyles, Box } from "@material-ui/core";
+import { Container, CssBaseline, Box } from "@material-ui/core";
 import Header from "./Header";
 import Sidebar from './Sidebar';
-import TopPage from '../page/TopPage';
-
-const useStyles = makeStyles(theme => ({
-  toolbar: {
-    ...theme.mixins.toolbar
-  }
-}));
+import useStyles from '../style/AppStyle';
+import { useDispatch } from 'react-redux';
+import { updateSysdate } from "../store/DomainState";
 
 const App: React.FC = () => {
 
   const classes = useStyles();
+  const dispatch = useDispatch();
+  dispatch(updateSysdate());
 
   return (
-    <Container>
-      <Box display="flex">
-        <CssBaseline />
-        <Header />
-        <Sidebar />
+    <Container className={classes.root}>
+      <CssBaseline />
+      <Header />
+      <Sidebar />
+      <Box component="div" className={classes.content}>
         <div className={classes.toolbar} />
-        <Box flexGrow={1}>
-          <TopPage match={{params: {title: 'HelloWorld!'}}} />
-        </Box>
+        Hello World!<br />
+        Hello World!<br />
+        Hello World!<br />
+        Hello World!<br />
+        Hello World!<br />
+        Hello World!<br />
+        Hello World!<br />
+        Hello World!<br />
+        Hello World!<br />
+        Hello World!
       </Box>
     </Container>
   );
