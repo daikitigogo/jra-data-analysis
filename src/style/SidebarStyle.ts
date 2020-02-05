@@ -1,12 +1,12 @@
 import { makeStyles } from '@material-ui/core';
-import { sidebarWidth, breakpointUp } from '../env';
+import { sidebarWidth, breakpoint } from '../constants';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
     ...theme.mixins.toolbar
   },
   drawer: {
-    [theme.breakpoints.up(breakpointUp)]: {
+    [theme.breakpoints.up(breakpoint.point)]: {
       width: sidebarWidth,
       flexShrink: 0,
     },

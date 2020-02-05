@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { List, ListItem, Box, ListItemIcon, ListItemText, Collapse } from '@material-ui/core';
+import { List, Box, ListItemIcon, ListItemText, Collapse } from '@material-ui/core';
 import { ExpandMore, ExpandLess } from "@material-ui/icons";
 import { IconProps } from '@mdi/react/dist/IconProps';
 import MdiIcon from './MdiIcon';
+import ListItemLink from "./ListItemLink.jsx";
 
 export interface LoopedListItemProps {
   text: string;
@@ -20,13 +21,13 @@ export const LoopedListItem: React.FC<LoopedListItemProps> = (props) => {
 
   return (
     <Box pl={pl}>
-      <ListItem button onClick={handleClick} divider>
+      <ListItemLink onClick={handleClick} link={props.link}>
         <ListItemIcon>
           <MdiIcon {...props.icon} />
         </ListItemIcon>
         <ListItemText primary={props.text} />
         {props.children && (open ? <ExpandLess /> : <ExpandMore />)}
-      </ListItem>
+      </ListItemLink>
       {
         props.children &&
         <Collapse in={open} timeout="auto" unmountOnExit>

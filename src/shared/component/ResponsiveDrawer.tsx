@@ -1,5 +1,6 @@
 import React from 'react';
 import { Hidden, Drawer } from '@material-ui/core';
+import { breakpoint } from "../../constants";
 
 interface ResponsiveDrawerProps<T> {
   open: boolean;
@@ -17,7 +18,7 @@ const ResponsiveDrawer = <T extends {}>(props: ResponsiveDrawerProps<T>) => {
 
   return (
     <nav className={classes.drawer}>
-      <Hidden smUp implementation="css">
+      <Hidden {...breakpoint.upAttr} implementation="css">
         <Drawer
           variant="temporary"
           open={props.open}
@@ -32,7 +33,7 @@ const ResponsiveDrawer = <T extends {}>(props: ResponsiveDrawerProps<T>) => {
           {props.children}
         </Drawer>
       </Hidden>
-      <Hidden xsDown implementation="css">
+      <Hidden {...breakpoint.downAttr} implementation="css">
         <Drawer
           classes={{
             paper: classes.drawerPaper,

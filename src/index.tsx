@@ -5,6 +5,8 @@ import * as serviceWorker from './serviceWorker';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import { Provider } from 'react-redux';
 import store from './store';
+import 'typeface-roboto';
+import './index.css';
 
 const theme = createMuiTheme({
   palette: {
@@ -13,6 +15,9 @@ const theme = createMuiTheme({
       contrastText: '#fff'
     }
   },
+  typography: {
+    fontFamily: '"Harenosora", "Roboto"'
+  }
 });
 
 ReactDOM.render(

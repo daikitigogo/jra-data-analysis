@@ -8,9 +8,9 @@ import { setSidebarOpen } from '../store/UIState';
 import ResponsiveDrawer from '../shared/component/ResponsiveDrawer';
 import useStyles from "../style/SidebarStyle";
 
-export interface SidebarProps { };
+const menuJson = '/json/menu.json';
 
-const Sidebar: React.FC<SidebarProps> = (props) => {
+const Sidebar: React.FC = () => {
 
   const { toolbar, ...drawerStyle } = useStyles();
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
   const sidebarOpen = useSelector((state: RootState) => state.ui.sidebarOpen);
   const sysdate = useSelector((state: RootState) => state.domain.sysdate);
   useEffect(() => {
-    fetch('/json/menu.json')
+    fetch(menuJson)
       .then(rsp => rsp.json())
       .then(
         success => {

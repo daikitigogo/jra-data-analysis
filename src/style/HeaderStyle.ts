@@ -1,16 +1,16 @@
 import { makeStyles } from '@material-ui/core';
-import { sidebarWidth, breakpointUp } from '../env';
+import { sidebarWidth, breakpoint } from '../constants';
 
 const useStyles = makeStyles(theme => ({
   appbar: {
-    [theme.breakpoints.up(breakpointUp)]: {
+    [theme.breakpoints.up(breakpoint.point)]: {
       width: `calc(100% - ${sidebarWidth}px)`,
       marginLeft: sidebarWidth,
     },
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up(breakpointUp)]: {
+    [theme.breakpoints.up(breakpoint.point)]: {
       display: 'none',
     },
   },

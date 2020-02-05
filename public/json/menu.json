@@ -3,7 +3,7 @@
     {
       "text": "今週の特別レース分析",
       "icon": {
-        "path": "horseshoe"
+        "path": "donkey"
       },
       "children": [
         {
@@ -16,7 +16,8 @@
               "text": "呉竹賞",
               "icon": {
                 "path": "numeric1CircleOutline"
-              }
+              },
+              "link": "/speciality/M2/20200202"
             },
             {
               "text": "東雲賞",
@@ -83,6 +84,88 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "text": "競馬場別分析",
+      "icon": {
+        "path": "barn"
+      },
+      "children": [
+        {
+          "text": "東京",
+          "icon": {
+            "path": "alphaMBoxOutline"
+          }
+        },
+        {
+          "text": "中山",
+          "icon": {
+            "path": "alphaMBoxOutline"
+          }
+        },
+        {
+          "text": "京都",
+          "icon": {
+            "path": "alphaMBoxOutline"
+          }
+        },
+        {
+          "text": "阪神",
+          "icon": {
+            "path": "alphaMBoxOutline"
+          }
+        },
+        {
+          "text": "札幌",
+          "icon": {
+            "path": "alphaLBoxOutline"
+          }
+        }
+      ]
+    },
+    {
+      "text": "騎手別分析",
+      "icon": {
+        "path": "cowboy"
+      }
+    },
+    {
+      "text": "調教師別分析",
+      "icon": {
+        "path": "yoga"
+      }
+    },
+    {
+      "text": "過去アーカイブ",
+      "icon": {
+        "path": "archive"
+      },
+      "children": [
+        {
+          "text": "特別レース分析",
+          "icon": {
+            "path": "donkey"
+          }
+        },
+        {
+          "text": "競馬場別分析",
+          "icon": {
+            "path": "barn"
+          }
+        },
+        {
+          "text": "騎手別分析",
+          "icon": {
+            "path": "cowboy"
+          }
+        },
+        {
+          "text": "調教師別分析",
+          "icon": {
+            "path": "yoga"
+          }
         }
       ]
     }

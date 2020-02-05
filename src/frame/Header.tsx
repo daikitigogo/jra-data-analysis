@@ -1,10 +1,11 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useDispatch } from "react-redux";
 import { setSidebarOpen } from '../store/UIState';
 import useStyles from '../style/HeaderStyle';
-import { appTitle } from "../env";
+import { appTitle } from "../constants";
+import RouterLink from "../shared/component/RouterLink";
 
 const Header: React.FC = () => {
 
@@ -21,9 +22,9 @@ const Header: React.FC = () => {
         <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleClick} className={classes.menuButton}>
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6">
+        <RouterLink link="/" variant="h6" color="inherit" underline="none">
           {appTitle}
-        </Typography>
+        </RouterLink>
       </Toolbar>
     </AppBar>
   );

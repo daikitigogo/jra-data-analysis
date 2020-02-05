@@ -1,21 +1,12 @@
 import React from 'react';
-import { Typography, Box } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
+import { appTitle } from '../constants';
 
-export interface TopPageProps {
-  match: {
-    params: {
-      title: string;
-    }
-  }
-};
-
-const TopPage: React.FC<TopPageProps> = (props) => {
+const TopPage: React.FC = () => {
   return (
-    <Box>
-      <Typography variant="h4">
-        {props.match.params.title}
-      </Typography>
-    </Box>
+    <Typography variant="h2">
+      {appTitle}
+    </Typography>
   );
 };
 
