@@ -1,0 +1,56 @@
+{
+  "items": [
+    {
+      "place": "中山",
+      "initialRace": "呉竹賞",
+      "races": [
+        {
+          "name": "呉竹賞",
+          "records": [
+            {
+              "raceDate": "2020-02-08",
+              "racePlace": "中山",
+              "orderOfFinish": 1
+            }
+          ]
+        },
+        {
+          "name": "東雲賞",
+          "records": [
+            {
+              "raceDate": "2020-02-08",
+              "racePlace": "中山",
+              "orderOfFinish": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "place": "阪神",
+      "initialRace": "桜花賞",
+      "races": [
+        {
+          "name": "桜花賞",
+          "records": [
+            {
+              "raceDate": "2020-02-08",
+              "racePlace": "中山",
+              "orderOfFinish": 1
+            }
+          ]
+        },
+        {
+          "name": "アレキサンド",
+          "records": [
+            {
+              "raceDate": "2020-02-08",
+              "racePlace": "中山",
+              "orderOfFinish": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -2,17 +2,17 @@ import React from 'react';
 import { Hidden, Drawer } from '@material-ui/core';
 import { breakpoint } from "../../constants";
 
-interface ResponsiveDrawerProps<T> {
+type ResponsiveDrawerProps = {
   open: boolean;
   onClose: () => void;
   children: any;
   classes: {
-    drawer: string;
-    drawerPaper: string;
+    drawer?: string;
+    drawerPaper?: string;
   };
 };
 
-const ResponsiveDrawer = <T extends {}>(props: ResponsiveDrawerProps<T>) => {
+export default (props: ResponsiveDrawerProps) => {
 
   const classes = props.classes;
 
@@ -47,5 +47,3 @@ const ResponsiveDrawer = <T extends {}>(props: ResponsiveDrawerProps<T>) => {
     </nav>
   );
 };
-
-export default ResponsiveDrawer;

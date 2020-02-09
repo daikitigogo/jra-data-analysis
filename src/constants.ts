@@ -11,7 +11,7 @@ class Breakpoint {
   readonly upAttr: { smUp?: boolean; mdUp?: boolean; lgUp?: boolean };
   readonly downAttr: { xsDown?: boolean; smDown?: boolean; mdDown?: boolean };
 
-  constructor(private readonly i: number) {
+  constructor(i: number) {
     const breakpoint = this.breakpoints[i];
     this.point = breakpoint.point as breakpointsType;
     this.upAttr = breakpoint.up;
@@ -21,4 +21,4 @@ class Breakpoint {
 
 export const breakpoint = new Breakpoint(1);
 export const sidebarWidth = 300;
-export const appTitle = 'JRAデータ分析';
+export const appTitle = '競馬データ分析';

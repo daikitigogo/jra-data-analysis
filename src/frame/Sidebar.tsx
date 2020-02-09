@@ -1,48 +1,48 @@
-import React, { useEffect } from 'react';
-import { LoopedListItemProps, LoopedListItem } from '../shared/component/LoopedListItem';
-import { Divider, List } from '@material-ui/core';
+import React from 'react';
+import LoopedListItem, { LoopedListItemProps } from '../shared/component/LoopedListItem';
+import { Divider, List, makeStyles } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
-import { setSidebarMenu } from '../store/DomainState';
+import { setSidebar } from '../store/DomainState';
 import { setSidebarOpen } from '../store/UIState';
 import ResponsiveDrawer from '../shared/component/ResponsiveDrawer';
-import useStyles from "../style/SidebarStyle";
+import { useRequest } from '../shared/hook/CustomHooks';
+import { sidebarWidth, breakpoint } from '../constants';
 
-const menuJson = '/json/menu.json';
+const useStyles = makeStyles(theme => ({
+  toolbar: {
+    ...theme.mixins.toolbar
+  },
+  drawer: {
+    [theme.breakpoints.up(breakpoint.point)]: {
+      width: sidebarWidth,
+      flexShrink: 0,
+    },
+  },
+  drawerPaper: {
+    width: sidebarWidth,
+  }
+}));
 
-const Sidebar: React.FC = () => {
+export default () => {
 
-  const { toolbar, ...drawerStyle } = useStyles();
+  const classes = useStyles();
   const dispatch = useDispatch();
-  const sidebarMenu = useSelector((state: RootState) => state.domain.sidebarMenu);
-  const sidebarOpen = useSelector((state: RootState) => state.ui.sidebarOpen);
-  const sysdate = useSelector((state: RootState) => state.domain.sysdate);
-  useEffect(() => {
-    fetch(menuJson)
-      .then(rsp => rsp.json())
-      .then(
-        success => {
-          dispatch(setSidebarMenu(success));
-        },
-        error => console.log(error)
-    );
-  }, [dispatch, sysdate]);
+  const [sidebar, sidebarOpen] = useSelector((state: RootState) => [state.domain.sidebar, state.ui.sidebarOpen]);
+  useRequest('/json/menu.json', setSidebar);
   
-  const handleClose = () => {
-    dispatch(setSidebarOpen());
-  };
+  const handleClose = () => dispatch(setSidebarOpen());
+
   return (
-    <ResponsiveDrawer open={sidebarOpen} onClose={handleClose} classes={drawerStyle}>
-      <div className={toolbar} />
+    <ResponsiveDrawer open={sidebarOpen} onClose={handleClose} classes={classes}>
+      <div className={classes.toolbar} />
       <Divider />
       <List
         component="nav"
         disablePadding
       >
-        {sidebarMenu.items.map((item: LoopedListItemProps) => <LoopedListItem key={item.text} pl={0} {...item} />)}
+        {sidebar.items.map((item: LoopedListItemProps) => <LoopedListItem key={item.text} pl={0} {...item} />)}
       </List>
     </ResponsiveDrawer>
   );
 };
-
-export default Sidebar;

@@ -2,7 +2,7 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import { Link as RouterLink } from 'react-router-dom';
 
-const ListItemLink = (props) => {
+export default (props) => {
 
   const { link, onClick, children } = props;
 
@@ -25,5 +25,3 @@ const ListItemLink = (props) => {
     </ListItem>
   );
 }
-
-export default ListItemLink;

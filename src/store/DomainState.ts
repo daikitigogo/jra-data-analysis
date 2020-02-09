@@ -5,19 +5,25 @@ const DomainState = createSlice({
   name: 'Domain',
   initialState: {
     sysdate: new UDate().truncate(),
-    sidebarMenu: {
+    sidebar: {
+      items: []
+    },
+    specialityRace: {
       items: []
     },
   },
   reducers: {
-    updateSysdate: state => {
-      return Object.assign({}, state, { sysdate: new UDate().truncate() });
+    setSysdate: (state, action) => {
+      return Object.assign({}, state, { sysdate: action.payload });
     },
-    setSidebarMenu: (state, action) => {
-      return Object.assign({}, state, { sidebarMenu: action.payload });
+    setSidebar: (state, action) => {
+      return Object.assign({}, state, { sidebar: action.payload });
+    },
+    setSpecialityRace: (state, action) => {
+      return Object.assign({}, state, { specialityRace: action.payload });
     },
   }
 });
 
 export default DomainState.reducer;
-export const { setSidebarMenu, updateSysdate } = DomainState.actions;
+export const { setSysdate, setSidebar, setSpecialityRace } = DomainState.actions;

@@ -13,7 +13,7 @@ export interface LoopedListItemProps {
   link?: string;
 };
 
-export const LoopedListItem: React.FC<LoopedListItemProps> = (props) => {
+const LoopedListItem: React.FC<LoopedListItemProps> = (props) => {
   
   const pl = props.pl === undefined ? 2 : props.pl;
   const [open, setOpen] = useState(false);
@@ -39,3 +39,4 @@ export const LoopedListItem: React.FC<LoopedListItemProps> = (props) => {
     </Box>
   );
 };
+export default LoopedListItem;

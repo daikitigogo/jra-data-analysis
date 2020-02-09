@@ -3,7 +3,7 @@ import { Icon } from '@mdi/react';
 import { IconProps } from '@mdi/react/dist/IconProps';
 import { useTheme } from '@material-ui/core';
 
-const MdiIcon: React.FC<IconProps> = (props) => {
+export default (props: IconProps) => {
 
   const { path, size, color, ...other } = props;
   const theme = useTheme();
@@ -19,14 +19,12 @@ const MdiIcon: React.FC<IconProps> = (props) => {
     import('@mdi/js').then(icons => {
       // @ts-ignore
       const value = icons[`mdi${path.charAt(0).toUpperCase() + path.slice(1)}`];
-      if (!value) throw new Error(`Invalid icon path. props: ${props}`);
+      if (!value) throw new Error(`Invalid icon path. path: ${path}`);
       setIconPath(value);
     });
-  });
+  }, [path]);
   
   return (
     <Icon path={iconPath} {...iconProps} />
   )
 };
-
-export default MdiIcon;

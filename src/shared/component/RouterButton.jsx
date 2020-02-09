@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Link as MaterialLink } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 export default (props) => {
 
-  const { link, children, ...linkProps } = props;
+  const { link, children, ...buttonProps } = props;
 
   const renderLink = React.useMemo(
     () => React.forwardRef((itemProps, ref) => <Link to={link} ref={ref} {...itemProps} />),
@@ -12,8 +12,8 @@ export default (props) => {
   );
 
   return (
-    <MaterialLink {...linkProps} component={renderLink}>
+    <Button {...buttonProps} component={renderLink}>
       {children}
-    </MaterialLink>
+    </Button>
   );
 }

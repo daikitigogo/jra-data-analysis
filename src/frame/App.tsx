@@ -1,19 +1,27 @@
 import React from 'react';
-import { Container, CssBaseline, Box } from "@material-ui/core";
+import { Container, CssBaseline, Box, makeStyles } from "@material-ui/core";
 import Header from "./Header";
 import Sidebar from './Sidebar';
-import useStyles from '../style/AppStyle';
-import { useDispatch } from 'react-redux';
-import { updateSysdate } from "../store/DomainState";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import TopPage from '../page/TopPage';
-import SpecialityRace from '../page/speciality/SpecialityRace';
+import SpecialityRace from '../page/SpecialityRace';
 
-const App: React.FC = () => {
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+  },
+  toolbar: {
+    ...theme.mixins.toolbar,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(2)
+  }
+}));
+
+export default () => {
 
   const classes = useStyles();
-  const dispatch = useDispatch();
-  dispatch(updateSysdate());
 
   return (
     <Container maxWidth={false} className={classes.root}>
@@ -24,11 +32,9 @@ const App: React.FC = () => {
         <Box component="div" className={classes.content}>
           <div className={classes.toolbar} />
           <Route path="/" component={TopPage} exact />
-          <Route path="/speciality/:place/:date" component={SpecialityRace} exact />
+          <Route path="/speciality/:raceDate" component={SpecialityRace} exact />
         </Box>
       </Router>
     </Container>
   );
 }
-
-export default App;

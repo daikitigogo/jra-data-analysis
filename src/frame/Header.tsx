@@ -1,20 +1,32 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, makeStyles } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useDispatch } from "react-redux";
 import { setSidebarOpen } from '../store/UIState';
-import useStyles from '../style/HeaderStyle';
 import { appTitle } from "../constants";
 import RouterLink from "../shared/component/RouterLink";
+import { sidebarWidth, breakpoint } from '../constants';
 
-const Header: React.FC = () => {
+const useStyles = makeStyles(theme => ({
+  appbar: {
+    [theme.breakpoints.up(breakpoint.point)]: {
+      width: `calc(100% - ${sidebarWidth}px)`,
+      marginLeft: sidebarWidth,
+    },
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up(breakpoint.point)]: {
+      display: 'none',
+    },
+  },
+}));
+
+export default () => {
 
   const classes = useStyles();
-
   const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(setSidebarOpen());
-  };
+  const handleClick = () => dispatch(setSidebarOpen());
 
   return (
     <AppBar position="fixed" className={classes.appbar}>
@@ -29,5 +41,3 @@ const Header: React.FC = () => {
     </AppBar>
   );
 };
-
-export default Header;
