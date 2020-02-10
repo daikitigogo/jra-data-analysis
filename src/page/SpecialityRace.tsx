@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, makeStyles, Divider, Typography, TableContainer, Table, TableHead, TableRow, TableCell } from '@material-ui/core';
+import { Box, makeStyles, Divider, Typography, TableContainer, Table, TableHead, TableRow, TableCell, Paper } from '@material-ui/core';
 import { RouteComponentProps } from 'react-router-dom';
 import { setSpecialityRace } from "../store/DomainState";
 import { useSelector } from 'react-redux';
@@ -9,36 +9,42 @@ import { useRequest } from '../shared/hook/CustomHooks';
 import UDate from '../util/UDate';
 
 const useStyles = makeStyles(theme => ({
+  paper: {
+    width: '100%'
+  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120
   },
   tableContainer: {
     minHeight: '100vh'
+  },
+  th: {
+    minWidth: 170
   }
 }));
 
 const columns = [
-  { id: 'raceDate', label: '開催日', style: {} },
-  { id: 'racePlace', label: '開催場', style: {} },
-  { id: 'orderOfFinish', label: '着順', style: {} },
-  { id: 'frameNumber', label: '枠番', style: {} },
-  { id: 'horseNumber', label: '馬番', style: {} },
-  { id: 'horseName', label: '馬名', style: {} },
-  { id: 'jockey', label: '騎手', style: {} },
-  { id: 'popular', label: '人気', style: {} },
-  { id: 'odds', label: '単勝オッズ', style: {} },
-  { id: 'timeOf3f', label: '上り3F', style: {} },
-  { id: 'orderOf3f', label: '上り順位', style: {} },
-  { id: 'previousRaceName', label: '前走レース名', style: {} },
-  { id: 'previousOrderOfFinish', label: '前走着順', style: {} },
-  { id: 'previousFrameNumber', label: '前走枠番', style: {} },
-  { id: 'previousHorseNumber', label: '前走馬番', style: {} },
-  { id: 'previousJockey', label: '前走騎手', style: {} },
-  { id: 'previousPopular', label: '前走人気', style: {} },
-  { id: 'previousOdds', label: '前走単勝オッズ', style: {} },
-  { id: 'previousTimeOf3f', label: '前走上り3F', style: {} },
-  { id: 'previousOrderOf3f', label: '前走上り順位', style: {} },
+  { id: 'raceDate', label: '開催日', className: 'th' },
+  { id: 'racePlace', label: '開催場', className: 'th' },
+  { id: 'orderOfFinish', label: '着順', className: 'th' },
+  { id: 'frameNumber', label: '枠番', className: 'th' },
+  { id: 'horseNumber', label: '馬番', className: 'th' },
+  { id: 'horseName', label: '馬名', className: 'th' },
+  { id: 'jockey', label: '騎手', className: 'th' },
+  { id: 'popular', label: '人気', className: 'th' },
+  { id: 'odds', label: '単勝オッズ', className: 'th' },
+  { id: 'timeOf3f', label: '上り3F', className: 'th' },
+  { id: 'orderOf3f', label: '上り順位', className: 'th' },
+  { id: 'previousRaceName', label: '前走レース名', className: 'th' },
+  { id: 'previousOrderOfFinish', label: '前走着順', className: 'th' },
+  { id: 'previousFrameNumber', label: '前走枠番', className: 'th' },
+  { id: 'previousHorseNumber', label: '前走馬番', className: 'th' },
+  { id: 'previousJockey', label: '前走騎手', className: 'th' },
+  { id: 'previousPopular', label: '前走人気', className: 'th' },
+  { id: 'previousOdds', label: '前走単勝オッズ', className: 'th' },
+  { id: 'previousTimeOf3f', label: '前走上り3F', className: 'th' },
+  { id: 'previousOrderOf3f', label: '前走上り順位', className: 'th' },
 ];
 
 export interface SpecialityRaceData {
@@ -114,13 +120,13 @@ export default (props: RouteComponentProps<{ raceDate: string }>) => {
           onChange={handleChange} />
       </Box>
       <Divider />
-      <Box>
+      <Paper className={classes.paper}>
         <TableContainer className={classes.tableContainer}>
             <Table stickyHeader>
               <TableHead>
                 <TableRow>
                   {columns.map(col => (
-                    <TableCell key={col.id} style={col.style}>
+                    <TableCell key={col.id} className={classes.th}>
                       {col.label}
                     </TableCell>
                   ))}
@@ -128,7 +134,7 @@ export default (props: RouteComponentProps<{ raceDate: string }>) => {
               </TableHead>
             </Table>
         </TableContainer>
-      </Box>
+      </Paper>
     </>
   );
 };

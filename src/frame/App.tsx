@@ -5,6 +5,7 @@ import Sidebar from './Sidebar';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import TopPage from '../page/TopPage';
 import SpecialityRace from '../page/SpecialityRace';
+import { sidebarWidth } from '../constants';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
+    width: `calc(100% - ${sidebarWidth}px)`,
     padding: theme.spacing(2)
   }
 }));
