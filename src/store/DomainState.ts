@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import UDate from '../util/UDate';
+import { SpecialityRaceData } from '../page/SpecialityRace';
 
 const DomainState = createSlice({
   name: 'Domain',
@@ -9,8 +10,9 @@ const DomainState = createSlice({
       items: []
     },
     specialityRace: {
-      items: []
-    },
+      selectors: [],
+      records: []
+    } as SpecialityRaceData,
   },
   reducers: {
     setSysdate: (state, action) => {
