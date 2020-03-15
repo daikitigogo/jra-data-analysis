@@ -1,12 +1,9 @@
 import React from 'react';
-import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import { FormControl, InputLabel, Select, MenuItem, makeStyles } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
-type WithLableSelectProps = {
-  classes: {
-    formControl?: string;
-    label?: string;
-    select?: string;
-  };
+type Props = {
   label: string;
   name: string;
   value: string;
@@ -17,18 +14,20 @@ type WithLableSelectProps = {
   onChange: (e: any) => void;
 };
 
-export default (props: WithLableSelectProps) => {
+export default (props: Props) => {
+
+  const defaultClasses = useSelector((state: RootState) => state.ui.defaultClasses);
 
   const options = props.items.map(item => (
     <MenuItem key={item.value} value={item.value}>{item.label}</MenuItem>
   ));
 
   return (
-    <FormControl className={props.classes.formControl}>
-      <InputLabel id={`${props.name}-label`} className={props.classes.label}>
+    <FormControl>
+      <InputLabel id={`${props.name}-label`}>
         {props.label}
       </InputLabel>
-      <Select name={props.name} labelId={`${props.name}-label`} value={props.value} onChange={props.onChange} className={props.classes.select}>
+      <Select name={props.name} labelId={`${props.name}-label`} value={props.value} onChange={props.onChange}>
         {options}
       </Select>
     </FormControl>

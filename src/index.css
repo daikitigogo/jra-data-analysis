@@ -2,3 +2,7 @@
   font-family: 'Harenosora';
   src: url('/font/hare.woff2');
 }
+
+th {
+  white-space: nowrap;
+}

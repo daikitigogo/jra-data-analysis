@@ -4,8 +4,9 @@ import Header from "./Header";
 import Sidebar from './Sidebar';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import TopPage from '../page/TopPage';
-import SpecialityRace from '../page/SpecialityRace';
+import SpecialityRace from '../page/speciality';
 import { sidebarWidth } from '../constants';
+import { useDefaultStyles } from '../shared/hook';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,6 +25,7 @@ const useStyles = makeStyles(theme => ({
 export default () => {
 
   const classes = useStyles();
+  useDefaultStyles();
 
   return (
     <Container maxWidth={false} className={classes.root}>

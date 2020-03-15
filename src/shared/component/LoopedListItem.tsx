@@ -5,19 +5,23 @@ import { IconProps } from '@mdi/react/dist/IconProps';
 import MdiIcon from './MdiIcon';
 import ListItemLink from "./ListItemLink.jsx";
 
-export interface LoopedListItemProps {
+export interface Props {
   text: string;
   icon: IconProps;
   pl?: number;
-  children?: LoopedListItemProps[];
+  children?: Props[];
   link?: string;
+  onClick?: (a: Props) => void;
 };
 
-const LoopedListItem: React.FC<LoopedListItemProps> = (props) => {
+const LoopedListItem = (props: Props) => {
   
   const pl = props.pl === undefined ? 2 : props.pl;
   const [open, setOpen] = useState(false);
-  const handleClick = () => props.children && setOpen(!open);
+  const handleClick = () => {
+    props.children && setOpen(!open);
+    props.onClick && props.onClick(props);
+  }
 
   return (
     <Box pl={pl}>
@@ -32,7 +36,7 @@ const LoopedListItem: React.FC<LoopedListItemProps> = (props) => {
         props.children &&
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            {props.children.map(child => <LoopedListItem key={child.text} {...child} />)}
+            {props.children.map(child => <LoopedListItem key={child.text} onClick={props.onClick} {...child} />)}
           </List>
         </Collapse>
       }

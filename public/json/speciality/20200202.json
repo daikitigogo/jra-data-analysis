@@ -1,13 +1,45 @@
 {
   "selectors": [
     {
-      "place": "中山",
-      "races": ["呉竹賞", "東雲賞"]
+      "label": "中山",
+      "children": [
+        {
+          "label": "つわぶき賞",
+          "children": [
+            {"key": "つわぶき賞2019-12-071", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "1", "frameNumber": "6", "horseNumber": "10", "horseId": "23271", "horseName": "ペコリーノロマーノ", "jockey": "吉田 隼人", "popular": "5", "timeOf3f": "34.5"},
+            {"key": "つわぶき賞2019-12-072", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "2", "frameNumber": "3", "horseNumber": "4", "horseId": "23515", "horseName": "フェアレストアイル", "jockey": "坂井 瑠星", "popular": "1", "timeOf3f": "34.7"},
+            {"key": "つわぶき賞2019-12-073", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "3", "frameNumber": "8", "horseNumber": "14", "horseId": "23255", "horseName": "リネンファッション", "jockey": "秋山 真一郎", "popular": "3", "timeOf3f": "34.3"},
+            {"key": "つわぶき賞2019-12-074", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "4", "frameNumber": "3", "horseNumber": "3", "horseId": "24388", "horseName": "ソーユーフォリア", "jockey": "藤岡 康太", "popular": "2", "timeOf3f": "34.8"},
+            {"key": "つわぶき賞2019-12-075", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "5", "frameNumber": "4", "horseNumber": "5", "horseId": "24008", "horseName": "バトルカグヤ", "jockey": "太宰 啓介", "popular": "8", "timeOf3f": "35.3"},
+            {"key": "つわぶき賞2019-12-076", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "6", "frameNumber": "4", "horseNumber": "6", "horseId": "24306", "horseName": "フィオリキアリ", "jockey": "藤井 勘一郎", "popular": "9", "timeOf3f": "34.2"},
+            {"key": "つわぶき賞2019-12-077", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "7", "frameNumber": "5", "horseNumber": "7", "horseId": "25211", "horseName": "ハニーリン", "jockey": "丹内 祐次", "popular": "14", "timeOf3f": "34.9"},
+            {"key": "つわぶき賞2019-12-078", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "8", "frameNumber": "7", "horseNumber": "11", "horseId": "23611", "horseName": "ピュアカラー", "jockey": "O.マーフィー", "popular": "4", "timeOf3f": "34.5"},
+            {"key": "つわぶき賞2019-12-079", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "9", "frameNumber": "6", "horseNumber": "9", "horseId": "24538", "horseName": "ザイラ", "jockey": "鮫島 克駿", "popular": "11", "timeOf3f": "34.8"},
+            {"key": "つわぶき賞2019-12-0710", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "10", "frameNumber": "1", "horseNumber": "1", "horseId": "22442", "horseName": "メルテッドハニー", "jockey": "横山 武史", "popular": "13", "timeOf3f": "35.3"},
+            {"key": "つわぶき賞2019-12-0711", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "11", "frameNumber": "5", "horseNumber": "8", "horseId": "22079", "horseName": "カイトレッド", "jockey": "丸山 元気", "popular": "6", "timeOf3f": "35.1"},
+            {"key": "つわぶき賞2019-12-0712", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "12", "frameNumber": "2", "horseNumber": "2", "horseId": "24297", "horseName": "サノハニー", "jockey": "藤田 菜七子", "popular": "10", "timeOf3f": "35.3"},
+            {"key": "つわぶき賞2019-12-0713", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "13", "frameNumber": "7", "horseNumber": "12", "horseId": "23152", "horseName": "イッツアワターン", "jockey": "松若 風馬", "popular": "12", "timeOf3f": "36.3"},
+            {"key": "つわぶき賞2019-12-0714", "raceName": "つわぶき賞", "raceDate": "2019-12-07", "racePlace": "中京", "orderOfFinish": "14", "frameNumber": "8", "horseNumber": "13", "horseId": "22265", "horseName": "シュルルヴァン", "jockey": "岩田 康誠", "popular": "7", "timeOf3f": "36.9"}
+          ]
+        },
+        {
+          "label": "東雲賞",
+          "children": []
+        }
+      ]
     },
     {
-      "place": "阪神",
-      "races": ["桜花賞", "チューリップ賞"]
+      "label": "阪神",
+      "children": [
+        {
+          "label": "桜花賞",
+          "children": []
+        },
+        {
+          "label": "チューリップ賞",
+          "children": []
+        }
+      ]
     }
-  ],
-  "recors": []
+  ]
 }

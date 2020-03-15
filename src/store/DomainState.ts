@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import UDate from '../util/UDate';
-import { SpecialityRaceData } from '../page/SpecialityRace';
+import { SpecialityRaceData } from '../page/speciality/data';
 
 const DomainState = createSlice({
-  name: 'Domain',
+  name: 'DomainState',
   initialState: {
     sysdate: new UDate().truncate(),
     sidebar: {
